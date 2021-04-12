@@ -1,0 +1,21 @@
+bianca --singlefile=masterfile.txt --labelfeaturenum=4 --brainmaskfeaturenum=1 --querysubjectnum=1 --trainingnums=1,2,3,4,5,6,7,8,9,10 --featuresubset=1,2 --matfeaturenum=3 --trainingpts=2000 --nonlespts=10000 --selectpts=noborder -o sub001_bianca_output –v
+
+bianca --singlefile=masterfile.txt --labelfeaturenum=4 --brainmaskfeaturenum=1 --trainingnums=all --featuresubset=1,2 --matfeaturenum=3  --trainingpts=2000 --nonlespts=10000 --saveclassifierdata=abcx  --selectpts=noborder --querysubjectnum=2
+
+
+bianca -v --singlefile=masterfile.txt --labelfeaturenum=4 --brainmaskfeaturenum=1 --trainingnums=1,3,4,5,6,7,8,9,10 --featuresubset=1,2 --matfeaturenum=3  --trainingpts=2000 --nonlespts=10000 --saveclassifierdata=abcx  --selectpts=noborder --querysubjectnum=2
+
+--brainmaskfeaturenum=1 (FLAIR scan is brain extracted)
+--labelfeaturenum=4 manual lesion mask
+--trainingnums=all
+--featuresubset=1,2 use FLAIR and T1 for features
+--matfeaturenum=3 use mat file for normalization
+--trainingpts=2000 (default = 2000)
+-nonlespts=10000  If not specified will be set to the same amount of lesion points (specified in --trainingpts)
+--selectpts=3 where to select the non-lesion points from the training dataset 
+
+Columns
+ 1 FLAIR masterFolder/ABC1026_FLAIR.nii 
+ 2 T1 masterFolder/ABC1026_T1.nii 
+ 3 mat masterFolder/ABC1026_T1.mat 
+ 4 label feature masterFolder/ABC_1026_WMH.nii

@@ -27,4 +27,18 @@ BIANCA has clear but minimal [documentation](https://fsl.fmrib.ox.ac.uk/fsl/fslw
 
 We will train BIANCA on images where a human has marked the WMHs, and subsequently have BIANCA identify WMHs a separate set of images where we have not drawn WMHs. In our case, BIANCA is trained on 55 people who are older, but have not suffered a stroke. We will then apply this classified to a large number of people who have had a stroke.
 
+#### BIANCA Preprocessing
+
+Here are the Matlab scripts for using BIANCA with lesion data:
+
+ - A_getFLAIR.m : find all T1/T2/FLAIR/Lesion maps for stroke patients and provide consistent names.
+ - B_enat.m : Use [Enantiomorphic normalization](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2658465/) to create 'healed' stroke images.
+ - C_mask.m : Remove non-brain scalp tissue from images.
+ - D_make_bianca_masterfile.m : Create BIANCA format masterfile for analyses.
+ - E_norm.m : Normalize images from native space to standard space (this step could have been integrated with step B).
+
+The image below shows an example of the results. The lesion is not visible on the healed T1 scan. The white matter hyperintensities are shown in red.
+ ![Results](AutomatedWMH.png)
+
+
 
